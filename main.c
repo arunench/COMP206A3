@@ -55,6 +55,11 @@ int main()
 	
 	
 	//Print the linked list
-	
-	
+	printf("PLease input an additinal integer number \n");
+	int deletenum;
+	scanvf("%d", &deletenum);
+	delete(deletenum);
+	delete(75);
+	prettyPrint(test);
+	return 0;
 }
