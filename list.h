@@ -1,17 +1,22 @@
+// Arunen Chellan (260636717)
 #include "stdio.h"
+#ifndef header
 #define header
 
 struct node
 {
 	int head;
 	struct node* tail;
-}*first, *point;
 
-struct node* first;
-struct node* point;
+}*start, *pointer;
 
-void add(int);
+struct node* start;
+struct node* pointer;
 
 void prettyPrint();
 
 int delete(int);
+
+void add(int);
+
+#endif
