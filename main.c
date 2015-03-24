@@ -1,4 +1,6 @@
 // Arunen Chellan (260636717)
+// Source: http://www.learn-c.org/en/Linked_lists
+// Source: http://www.thegeekstuff.com/2012/08/c-linked-list-example/
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -8,14 +10,15 @@ int main()
 {
     // Create a boolean
 	int istrue = 1;
+	int number;
+	int deletenum;
 	// String for filename and input
 	char answer[75];
 	char file[200];
 
 	// Create a file pointer
 	FILE *fp;
-	int number;
-	int deletenum;
+
 
 	while (istrue)
         {
@@ -36,8 +39,8 @@ int main()
 	start = (struct node*) malloc (sizeof(struct node));
 	if (fscanf(fp, "%d", &number) > 0)
 	{
-		start->head = number;
-		start->tail = NULL;
+		start->val = number;
+		start->next = NULL;
 		pointer = start;
 	}
 	while (fscanf(fp, "%d", &number) == 1)

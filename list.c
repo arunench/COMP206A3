@@ -1,4 +1,6 @@
 // Arunen Chellan (260636717)
+// Source: http://www.learn-c.org/en/Linked_lists
+// Source: http://www.thegeekstuff.com/2012/08/c-linked-list-example/
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -8,33 +10,33 @@
 
 struct node *find(int number)
 {
-        if (start->head == number)
+        if (start->val == number)
             {
                 // If the value we want to delete is the first number, set the first to the next
-                pointer = start->tail;
+                pointer = start->next;
                 return start;
         }
-        while (start->tail->head != number && start->tail->tail != NULL)
-                start = start->tail;
+        while (start->next->val != number && start->next->next != NULL)
+                start = start->next;
 
-        if (start->tail->head != number)
+        if (start->next->val != number)
         {
                 return NULL;
         }
         else{
                 // If the desired number is in the list, the node with that value will be returned
-                return start->tail;
+                return start->next;
         }
 }
 
 void prettyPrint()
 {
     //prints the list
-        while (start->tail != NULL){
-                printf("%d > ", start->head);
-                start = start->tail;
+        while (start->next != NULL){
+                printf("%d > ", start->val);
+                start = start->next;
         }
-        printf("%d\n", start->head);
+        printf("%d\n", start->val);
         start = pointer;
 
 }
@@ -52,7 +54,7 @@ int delete(int number)
         else
         {
                 search = find(number);
-                start->tail = search->tail;
+                start->next = search->next;
                 start = pointer;
 		printf("NUMBER WAS DELETED\n");
                 return 1;
@@ -67,13 +69,13 @@ void add(int number)
 		fprintf(stderr, "Error: cannot add another node\n");
 	        exit(-1);
 	}
-	newNode->head = number;
+	newNode->val = number;
 	current = (struct node*) start;
 
-	while (current->tail != NULL)
-		current = current->tail;
+	while (current->next != NULL)
+		current = current->next;
 
-	current->tail = newNode;
+	current->next = newNode;
 	current = newNode;
-	current->tail = NULL;
+	current->next = NULL;
 }
