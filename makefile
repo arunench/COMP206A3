@@ -1,5 +1,3 @@
-
-
 run: main.o list.o
 	gcc -o run main.o list.o
 
