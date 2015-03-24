@@ -50,7 +50,26 @@ int delete(int number)
                 return 1;
         }
 
+void prettyPrint()
+{	//prints the list
+    if (first != NULL)
+    {
+                while (first->tail != NULL)
+                {
+                        printf("%d >", first->head);
 
+                        first = first->tail;
+                }
+                printf("%d\n", first->head);	//prints last number
+                first = point;	//reset iterator 
+               
+            }
+        else 
+        {
+            printf("The list is empty.\n");
+        }
+
+}
 
 
 
