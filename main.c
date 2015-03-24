@@ -31,4 +31,50 @@ int main()
 			printf("The filename is not valid\n");	
 		}
 	}	
+// Put the first number in the first node
+	first = (struct node*) malloc (sizeof(struct node));	
+	if (fscanf(fp, "%d", &number) > 0)
+	{	
+		first->head = number;
+		first->tail = NULL;
+		point = first;	
+	}
+	while (fscanf(fp, "%d", &number) == 1) 
+	{
+		add(number);
+	}
+		
+	// Print the list
+	prettyPrint();
 	
+	istrue = 1;			
+
+	while(istrue)
+	{
+		if(first!=NULL)
+		{
+		// Ask the user to input a number they want to delete
+		printf("Please enter a number: ");			
+		scanf("%d", &deletenb);
+		printf("Here is the list after deleting the number");
+		delete(deletenb);		
+		prettyPrint();	
+		printf("Delete another number ? ");
+		scanf("%s", input);	
+		
+		if ((strcmp("y", input) == 0)
+		{
+			 continue;
+		}
+		else
+		{
+			istrue = 0;
+		}
+	}	
+	else
+	{
+		printf("The list is empty.");
+		istrue=0;
+	}
+	return 0;
+}	
