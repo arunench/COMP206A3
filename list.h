@@ -1,6 +1,6 @@
 // Arunen Chellan (260636717)
-// Source: http://www.learn-c.org/en/Linked_lists
-// Source: http://www.thegeekstuff.com/2012/08/c-linked-list-example/
+// Reference: http://www.learn-c.org/en/Linked_lists
+// Reference: http://www.thegeekstuff.com/2012/08/c-linked-list-example/
 #include "stdio.h"
 #ifndef header
 #define header

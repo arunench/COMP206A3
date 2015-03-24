@@ -1,6 +1,6 @@
 // Arunen Chellan (260636717)
-// Source: http://www.learn-c.org/en/Linked_lists
-// Source: http://www.thegeekstuff.com/2012/08/c-linked-list-example/
+// Reference: http://www.learn-c.org/en/Linked_lists
+// Reference: http://www.thegeekstuff.com/2012/08/c-linked-list-example/
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -62,6 +62,7 @@ int delete(int number)
 }
 void add(int number)
 {
+    // Add a number to the list, return nothing
 	struct node *newNode, *current;
 	newNode = (struct node*)malloc(sizeof(struct node));
 
@@ -69,11 +70,15 @@ void add(int number)
 		fprintf(stderr, "Error: cannot add another node\n");
 	        exit(-1);
 	}
+	// Make the value of the newNode equal to the desired number.
 	newNode->val = number;
+
 	current = (struct node*) start;
 
 	while (current->next != NULL)
-		current = current->next;
+    {
+     current = current->next;
+    }
 
 	current->next = newNode;
 	current = newNode;

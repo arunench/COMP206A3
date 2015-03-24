@@ -1,6 +1,6 @@
 // Arunen Chellan (260636717)
-// Source: http://www.learn-c.org/en/Linked_lists
-// Source: http://www.thegeekstuff.com/2012/08/c-linked-list-example/
+// Reference: http://www.learn-c.org/en/Linked_lists
+// Reference: http://www.thegeekstuff.com/2012/08/c-linked-list-example/
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -66,7 +66,7 @@ int main()
 
 		printf("Delete another number ? ");
 		scanf("%s", answer);
-
+    // If the user inputs y, repeat the loop
 		if ((strcmp("y", answer) == 0))
             {
 			 continue;
