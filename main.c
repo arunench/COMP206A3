@@ -43,6 +43,7 @@ int main()
 		start->next = NULL;
 		pointer = start;
 	}
+	//Scan the file and add all of the numbers
 	while (fscanf(fp, "%d", &number) == 1)
     {
 
@@ -66,8 +67,8 @@ int main()
 
 		printf("Delete another number ? ");
 		scanf("%s", answer);
-    // If the user inputs y, repeat the loop
-		if ((strcmp("y", answer) == 0))
+    // If the user inputs yes in any of the following forms, repeat the loop
+		if ((strcmp("yes", answer) == 0) || (strcmp("Yes", answer) == 0) || (strcmp("y", answer) == 0) || (strcmp("Y", answer) == 0))
             {
 			 continue;
 		}

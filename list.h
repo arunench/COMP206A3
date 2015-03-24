@@ -5,6 +5,7 @@
 #ifndef header
 #define header
 
+//Create a node structure with two attributes, a value, and a pointer to the next node
 struct node
 {
 	int val;

@@ -32,12 +32,19 @@ struct node *find(int number)
 void prettyPrint()
 {
     //prints the list
+    if(start != NULL)
+        {
         while (start->next != NULL){
                 printf("%d > ", start->val);
                 start = start->next;
         }
         printf("%d\n", start->val);
         start = pointer;
+        }
+        else
+        {
+         printf("Error: the list is empty");
+        }
 
 }
 
