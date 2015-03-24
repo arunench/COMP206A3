@@ -1,65 +1,34 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "list.h"
 
 int main()
-{	
-	//Create a string for the filename
-	char *filename;
-	char *line;
-	//Create an int to read each number in the file
+{
+	// Create a boolean
+	int istrue = 1;	
+	// String for filename and input
+	char *input;	
+	char *filename
+	// Create a file pointer
+	FILE *fp;	
 	int number;
-	//Create a file pointer
-	FILE *fp;
-	struct node *test;
-	//Prompt the user
-	printf("PLease enter a file name\n: ");
-	//Scan for the file
-	scanf("%s\n", &filename);
-	//Open the file in read mode
-	fp = fopen(filename, "r");
-	if(file!=NULL)
+	int deletenb;		
+
+	while (istrue)
 	{
-		file=fopen(filename,"r");
-		
-				while ( fgets ( line, sizeof line, fp ) != NULL )
-				{
-					
-					number = atoi(line);
-					add(number);
-				}
-	}
-	else
-	{
-		while(fp==NULL)
+		// Ask the user to enter a filename, and open it in read mode
+		// Keep asking until the user inputs a valid filename
+		printf("Please enter a filename or path");
+		scanf("%s", filename);
+		fp = fopen(filename, "r");
+		if (fp != NULL)
 		{
-			printf("Enter the name of the file\n");
-			scanf("%s\n",&filename);
-			//printf("%s\n",&filename);
-
-			fp=fopen(filename,"r");
-			
-					while ( fgets ( line, sizeof line, fp ) != NULL )
-					{
-						
-						number = atoi(line);
-						add(number);
-					}
-					
+			istrue = 0;	
 		}
-		fclose(fp);
+		else
+		{
+			printf("The filename is not valid\n");	
+		}
+	}	
 	
-	}
-
-	printf("Here is the linked list with the numbers you put in:\n");
-	prettyPrint(test);
-	
-	
-	//Print the linked list
-	printf("PLease input an additinal integer number \n");
-	int deletenum;
-	scanvf("%d", &deletenum);
-	delete(deletenum);
-	delete(75);
-	prettyPrint(test);
-	return 0;
-}
