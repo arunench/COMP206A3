@@ -1,6 +1,4 @@
-
 #include "stdio.h"
-#ifndef header
 #define header
 
 struct node
@@ -17,5 +15,3 @@ void add(int);
 void prettyPrint();
 
 int delete(int);
-
-#endif

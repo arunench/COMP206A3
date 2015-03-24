@@ -4,93 +4,75 @@
 #include "list.h"
 
 
-struct node *find(int number){		
 
+struct node *find(int number)
+{
         if (first->head == number)
-        {		
-            // If the value we want to delete is the first number, set the first to the next
-                point = first->tail;	
-                return first;		
+            {
+                // If the value we want to delete is the first number, set the first to the next
+                point = first->tail;
+                return first;
         }
-        while (first->tail->head != number && first->tail->tail != NULL)	
-             { 
-                first = first->tail;					
-                }
+        while (first->tail->head != number && first->tail->tail != NULL)
+                first = first->tail;
+
         if (first->tail->head != number)
-        {		
-                return NULL;			
-        }
-        else
         {
-                // If the desired number is in the list, the node with that value will be returned
-                return first->tail;	
+                return NULL;
         }
+        else{
+                // If the desired number is in the list, the node with that value will be returned
+                return first->tail;
+        }
+}
+
+void prettyPrint()
+{
+    //prints the list
+        while (first->tail != NULL){
+                printf("%d > ", first->head);
+                first = first->tail;
+        }
+        printf("%d\n", first->head);
+        first = point;
+
 }
 
 int delete(int number)
-        {
-
-        //Create a temporary node
-        struct node *temp; 
-        // If the number was not in the list   
+{
+    // Delete the number from the list
+        struct node *target;
         if (find(number) == NULL)
-        {  
-            
-                first = point;  
-                printf("Your number is not in the list.\n");
-
-        return 0;   
+            {
+                first = point;
+               	printf("Your number is not in the list.\n");
+		return 0;
         }
         else
         {
-                temp = find(number);  //find temp node with value of number
-                first->tail = temp->tail; //attach first->tail to the next tail
-                first = point;  //reset iterator
-                printf("Your number was deleted successufly.\n");
+                target = find(number);
+                first->tail = target->tail;
+                first = point;
+		printf("Your number was deleted successufly.\n");
                 return 1;
         }
-
-void prettyPrint()
-{	//prints the list
-    if (first != NULL)
-    {
-                while (first->tail != NULL)
-                {
-                        printf("%d >", first->head);
-
-                        first = first->tail;
-                }
-                printf("%d\n", first->head);	//prints last number
-                first = point;	//reset iterator 
-               
-            }
-        else 
-        {
-            printf("The list is empty.\n");
-        }
-
 }
-
-
-
 void add(int number)
 {
+	struct node *newNode, *current;
+	newNode = (struct node*)malloc(sizeof(struct node));
 
-    struct node *newNode;
-    struct node *current;
-    newNode = (struct node*)malloc(sizeof(struct node));    
-    if(newNode == NULL){
-        fprintf(stderr, "Error: cannot add another node\n");    
-            exit(-1);
-    }
-    newNode->head = number; 
-    current = (struct node*) first; 
-    while (current->tail != NULL)   
-       { 
-        current = current->tail;
-        }
-    current->tail = newNode;    
-    current = newNode;      
-    current->tail = NULL;       
-}
+	if(newNode == NULL){
+		fprintf(stderr, "Error: cannot add another node\n");
+	        exit(-1);
+	}
+	newNode->head = number;
+	current = (struct node*) first;
+
+	while (current->tail != NULL)
+		current = current->tail;
+
+	current->tail = newNode;
+	current = newNode;
+	current->tail = NULL;
 }
